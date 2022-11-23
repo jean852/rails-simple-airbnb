@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<%# <%= render flat %>
+<%= @flat.name %>
+<%= @flat.description %>
+<%= @flat.address %>
+<%= @flat.price_per_night %>
+<%= @flat.number_of_guests %>
+
+
+
+<div>
+  <%= link_to "Edit this flat", edit_flat_path(@flat) %> |
+  <%= link_to "Back to flats", flats_path %>
+
+  <%= button_to "Destroy this flat", @flat, method: :delete %>
+</div>

@@ -1,0 +1,46 @@
+
+
+<p style="color: green"><%= notice %></p>
+
+<div class="container mt-3">
+  <div class="row">
+    <h1>Our Amazing Flats</h1>
+  </div>
+
+  <div class="row">
+    <p> All <%= @flats.count %> flats</p>
+  </div>
+
+<%# ROW TO DSIPLAY FLEXBOW FLATS %>
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('https://www.google.fr/search?q=villa+la+ciotat&hl=fr&tbm=isch&sxsrf=ALiCzsYZCHybDjTlX_NhUREYOlf8s10mmA%3A1668813761787&source=hp&biw=1680&bih=939&ei=wRN4Y5nLLZKLkdUPwdam2A4&iflsig=AJiK0e8AAAAAY3gh0VkYvXLWWCFCs43Z_UG9Zvwt4KMQ&oq=villa+la+cio&gs_lcp=CgNpbWcQARgAMgUIABCABDIGCAAQCBAeMgYIABAIEB4yBwgAEIAEEBgyBwgAEIAEEBgyBwgAEIAEEBgyBwgAEIAEEBg6BwgjEOoCECc6BAgjECc6CAgAELEDEIMBOggIABCABBCxAzoECAAQHjoGCAAQBRAeUI4IWJsgYPczaAFwAHgAgAE_iAHgBJIBAjEymAEAoAEBqgELZ3dzLXdpei1pbWewAQo&sclient=img#imgrc=yqcyf3hUj1gO1M')"></div>
+          <div class="flat-card-content">
+            <h4> <%= flat.name%> </h4>
+            <p> <%= flat.address%> </p>
+            <div class="flex align-items-center">
+            <div class="flex align-items-center ms-3">
+              <i class="fa-solid fa-person"></i>
+              <p> <%= flat.number_of_guests%> </p>
+            </div>
+            <div class="flex align-items-center ms-3">
+              <i class="fa-solid fa-euro-sign"></i>
+              <p> <%= flat.price_per_night%> </p>
+            </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to "More info", flat %>
+            <%= link_to "Edit", flat, class: "ms-3 text-warning" %>
+            <%= link_to "Remove", flat, class: "ms-3 text-danger" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "New flat", new_flat_path %>
+
+</div>
